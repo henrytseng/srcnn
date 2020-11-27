@@ -19,10 +19,10 @@ scale = param['scale']
 build_model = partial(get_model(param['model']['name']),
                       **param['model']['params'])
 if 'optimizer' in param:
-    optimizer = getattr(optimizers, param['optimizer']['name'].lower())
+    optimizer = getattr(optimizers, param['optimizer']['name'].title())
     optimizer = optimizer(**param['optimizer']['params'])
 else:
-    optimizer = 'adam'
+    optimizer = 'Adam'
 
 # Data
 load_set = partial(load_set,
