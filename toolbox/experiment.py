@@ -5,7 +5,7 @@ import time
 from keras import backend as K
 from keras.callbacks import CSVLogger
 from keras.callbacks import ModelCheckpoint
-from keras.optimizers import adam
+from keras.optimizers import Adam
 from keras.preprocessing.image import img_to_array
 import matplotlib
 matplotlib.use('Agg')
@@ -52,7 +52,7 @@ class Experiment(object):
     def latest_epoch(self):
         try:
             return pd.read_csv(str(self.history_file))['epoch'].iloc[-1]
-        except (FileNotFoundError, pd.io.common.EmptyDataError):
+        except (FileNotFoundError, pd.errors.EmptyDataError):
             pass
         return -1
 

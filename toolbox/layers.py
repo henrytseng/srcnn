@@ -19,7 +19,7 @@ class ImageRescale(Layer):
 
     def call(self, x):
         size = self.compute_size(x.shape.as_list())
-        return tf.image.resize_images(x, size, method=self.method)
+        return tf.image.resize(x, size, method=self.method)
 
     def compute_output_shape(self, input_shape):
         size = self.compute_size(input_shape)
